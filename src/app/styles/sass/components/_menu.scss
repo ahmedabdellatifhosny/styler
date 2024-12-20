@@ -1,0 +1,147 @@
+.menu {
+  padding: 20px 0;
+  .logo {
+    font-weight: bold;
+    cursor: pointer;
+    p {
+      margin-left: 20px;
+      color: #222;
+      text-transform: uppercase;
+    }
+  }
+
+  .menu-icons {
+    .fa-bars-staggered,
+    .fa-magnifying-glass,
+    .fa-gear,
+    .fa-cart-shopping {
+      font-size: 20px;
+      cursor: pointer;
+      color: #222;
+      position: relative;
+    }
+    a {
+      position: relative;
+    }
+    span {
+      background-color: #d57151;
+      padding: 0 5px;
+      color: #fff;
+      font-size: 10px;
+      position: absolute;
+      top: -10;
+      right: 10px;
+      font-weight: bold;
+      border-radius: 50%;
+      @include CircelborderRadius;
+    }
+    .fa-magnifying-glass,
+    .fa-gear,
+    .fa-cart-shopping {
+      margin: 0 10px;
+    }
+  }
+}
+.modal-dialog {
+  max-width: 90%; /* تحدد الحد الأقصى للعرض */
+  width: 90%; /* تعيين العرض إلى 80% من حجم الشاشة */
+}
+
+.modal-content {
+  height: 100%; /* تأكد من أن المحتوى يملأ المودال بالكامل */
+}
+.modal-content{
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  box-shadow: 0 0 5px #222;
+  
+}
+.search-box-modal {
+  position: relative;
+
+  .fa-magnifying-glass {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    border-left: 1px solid #ddd;
+    padding-left: 5px;
+  }
+
+  .form-control {
+    font-size: 14px;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+  }
+}
+.top-search {
+  font-size: 13px;
+  ul {
+    li {
+      color: $themeColor;
+    }
+  }
+}
+
+.products{
+  .pro-box {
+    border: 1px solid #eee7e7b8;
+    @include borderRadius-autoprefixer;
+    margin: 0 10px;
+    width: 95% !important;
+    padding: 10px;
+    img {
+      width: 100%;
+      object-fit: contain;
+      padding: 10px;
+      background-color: #F2F2F2;
+    }
+    h5{
+      padding: 10px 0;
+    }
+    .rating {
+      padding: 10px;
+      .fa-star {
+        color: #ffa200;
+        margin-right: 3px;
+      }
+    }
+
+    .discount {
+      display: flex;
+      gap: 5px;
+      padding: 10px;
+    }
+    .original {
+      font-weight: bold;
+    }
+    .price-discount {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .original {
+        font-weight: 600;
+      }
+      .price-discount {
+        text-decoration: line-through;
+        color: #aaa;
+      }
+      .off {
+        color: $themeColor;
+        font-weight: bold;
+        background-color: #faefec;
+        padding: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.my-orders-header {
+  background-color: #f8f8f8;
+  padding: 20px 0;
+  margin-bottom: 50px;
+  .breadcrumb {
+    justify-content: center;
+    align-items: center;
+    a {
+      text-decoration: none;
+      color: $themeColor;
+      cursor: pointer;
+    }
+    .active {
+      @include transition-autoprefixer;
+      cursor: pointer;
+      &:hover {
+        color: $themeColor;
+      }
+    }
+  }
+}
+
+.my-orders {
+  overflow: auto;
+}
+.pagination {
+  padding: 10px 0;
+  .page-item {
+    .page-link {
+      color: #888;
+    }
+  }
+  .active {
+    cursor: pointer;
+    .page-link {
+      background-color: $themeColor;
+      border-color: $themeColor;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.products {
+  .filters {
+    .categories-filter {
+      margin: 20px 0;
+      form {
+        overflow-y: scroll;
+        height: 200px;
+      }
+    }
+    .brands-filter {
+      margin: 20px 0;
+      form {
+        overflow-y: scroll;
+        height: 200px;
+      }
+    }
+    .colours-filter {
+        margin: 20px 0;
+        form {
+          overflow-y: scroll;
+          height: 200px;
+        }
+      }
+
+      .ratings-filter {
+        margin: 20px 0;
+        form {
+          overflow-y: scroll;
+          height: 200px;
+        }
+      }
+  }
+}

@@ -1,0 +1,16 @@
+.hero {
+  .slider {
+    position: relative;
+    width: 100vw;
+    height: 500px;
+    img {
+      object-fit: contain;
+    }
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon,
+  .carousel-indicators {
+    display: none;
+  }
+}

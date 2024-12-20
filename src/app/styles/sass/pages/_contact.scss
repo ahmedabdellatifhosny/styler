@@ -1,0 +1,81 @@
+.contact-us {
+  .contact-header {
+    background-color: #f8f8f8;
+    padding: 20px 0;
+    margin-bottom: 50px;
+    .breadcrumb {
+      justify-content: center;
+      align-items: center;
+      a {
+        text-decoration: none;
+        color: $themeColor;
+        cursor: pointer;
+      }
+      .active {
+        @include transition-autoprefixer;
+        cursor: pointer;
+        &:hover {
+          color: $themeColor;
+        }
+      }
+    }
+  }
+
+  .contact-form {
+    background-color: #f8f8f8;
+    padding: 0 20px 0 20px;
+    margin: 15px 0;
+    border: 1px solid #d9d9d9;
+    .form-control {
+      border: 1px solid #d9d9d9;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+    }
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+    .btn-primary {
+      background-color: $themeColor;
+      border-color: $themeColor;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+      &:hover {
+        background-color: #fff;
+        color: $themeColor;
+      }
+    }
+  }
+
+  .contact-info {
+    .contact-box {
+      margin: 20px 0;
+      width: 100%;
+      padding: 15px 0;
+      background-color: #f8f8f8;
+      border: 1px solid #eee;
+      border-radius: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+    }
+    .contact-icon {
+      background-color: #fff;
+      .fa-phone,
+      .fa-location-dot,
+      .fa-envelope,
+      .fa-fax {
+        color: $themeColor;
+        font-size: 25px;
+        padding: 10px 15px;
+      }
+    }
+  }
+}

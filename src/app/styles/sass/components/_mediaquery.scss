@@ -1,0 +1,114 @@
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 767px) {
+  .loader {
+    &::before {
+      font-size: 25px;
+    }
+  }
+  .links {
+    .auth {
+      display: block !important;
+    }
+    .social-icons {
+      ul {
+        li {
+          padding-right: 30px;
+        }
+      }
+    }
+  }
+  .menu {
+    padding: 30px 0 10px 0;
+  }
+  .counter {
+    font-size: 15px;
+    width: 200px;
+  }
+
+  .links {
+    ul {
+      li {
+        margin: 0 8px;
+      }
+    }
+    .menuheader {
+      width: 100%;
+    }
+    .auth {
+      display: flex;
+    }
+  }
+  .hero {
+    .slider {
+      position: relative;
+      width: 100vw;
+      height: 150px;
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+  .about {
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .modal-content {
+    width: 100% !important;
+    margin: auto !important;
+  }
+
+  .footer {
+    img {
+      width: 90vw;
+      height: 90%;
+      margin-top: 15px;
+    }
+  }
+
+  .modal-content {
+    width: 100vw !important;
+  }
+
+  // cart page
+  .td-image {
+    img {
+      padding: 0 !important;
+    }
+  }
+  .checkout {
+    .billing-summary {
+      .apply {
+        .form-control {
+          width: 60% !important;
+        }
+      }
+    }
+  }
+}
+// checkout page
+
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .hero {
+    .slider {
+      position: relative;
+      width: 100vw;
+      height: 300px;
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+  .about {
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}

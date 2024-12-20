@@ -1,0 +1,53 @@
+.newsletter {
+  padding: 50px 0;
+  background-color: #f1f5f4;
+  .social-icons {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    height: 300px;
+    .icons {
+      ul {
+        li {
+          cursor: pointer;
+          @include transition-autoprefixer;
+          &:hover {
+            color: $themeColor;
+          }
+        }
+      }
+    }
+  }
+  .newsletter-info {
+    background-color: #d57251c3;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .form-control {
+        padding: 10px 20px;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;letter-spacing: 5px;
+}
+    .btn-dark{
+        padding: 10px 20px;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+}
+  }
+  .store-information {
+    background-color: #fff;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

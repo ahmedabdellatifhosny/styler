@@ -1,0 +1,40 @@
+.about {
+  padding: 50px 0;
+  text-transform: capitalize;
+  h6 {
+    color: $themeColor;
+  }
+  h2 {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .line {
+    margin-bottom: 50px;
+    ul {
+      li {
+        background: $themeColor;
+        width: 20px;
+        height: 2px;
+
+        &:nth-child(1) {
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+        }
+        &:nth-child(2) {
+          width: 50px;
+        }
+        &:nth-child(3) {
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+      }
+    }
+  }
+  img {
+    @include transition-autoprefixer;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

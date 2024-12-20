@@ -1,0 +1,79 @@
+.shoes-slider {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 50px 0;
+  .slide-title {
+    h5 {
+      padding: 10px 0;
+      margin: 10px 0 20px 0;
+      border-bottom: 1px solid #eee;
+      color: #222;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+  .slider-items {
+    cursor: pointer;
+    margin: 7px 0;
+    .box-slider {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      box-shadow: 0 0 5px #ccc;
+      border-radius: 5px;
+      .box-img {
+        position: relative;
+        width: 100%;
+        height: 130px;
+        img {
+          object-fit: contain;
+          background-color: #f6f6f6;
+        }
+      }
+    }
+    .box-details {
+      padding: 10px;
+      .rating {
+        color: #ffa200;
+      }
+      .pro-details {
+        color: #777;
+      }
+      .pro-price {
+        span {
+          &:first-child {
+            color: #222;
+            margin-right: 5px;
+            font-weight: bold;
+          }
+          &:last-child {
+            color: #aaa;
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+  .slick-next,
+  .slick-prev {
+    position: absolute;
+  }
+
+  .slick-next {
+    top: -40px;
+    right: 0;
+    &::before{
+      color: #222;
+    }
+  }
+  .slick-prev {
+    top: -40px;
+    left: 84%;
+    &::before{
+      color: #222;
+    }
+  }
+}

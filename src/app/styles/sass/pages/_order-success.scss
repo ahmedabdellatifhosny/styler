@@ -1,0 +1,100 @@
+.order-success {
+  .lotti-animation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+
+  .payment-info {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .payment-info p {
+    margin: 5px 0;
+  }
+}
+.orders {
+  .table-orders {
+    .product-img {
+      position: relative;
+      width: 100%;
+      height: 100px;
+      img {
+        object-fit: contain;
+        padding: 15px;
+      }
+    }
+  }
+  .order-details {
+    padding: 15px;
+    border: 1px solid #eee;
+    margin-top: -16px;
+    margin-bottom: 15px;
+    ul{
+      li{
+        margin: 15px 0;
+      }
+    }
+    h5 {
+      color: #777;
+    }
+    .price {
+      span {
+        color: #232323;
+        text-align: right;
+        font-weight: 600;
+        font-size: 1.25rem;
+      }
+    }
+    .tax {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    .total {
+      padding-top: 20px;
+    
+    }
+  }
+  .summery{
+    h4{
+      border-bottom: 1px solid #eee;
+      margin: 10px 0 ;
+      padding-bottom: 10px;
+    }
+    ul{
+      li{
+        color: #777;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+    }
+    .payment-methods{
+      margin-bottom: 10px;
+      font-size: 16px;
+      h4{
+        border-bottom: 1px solid #eee;
+        margin: 10px 0 ;
+        padding-bottom: 10px;
+      }
+      
+    
+      p{
+        color: #777;
+        .delivery-date{
+          color: #222;
+          font-weight: 700;
+        }
+      }
+    a{
+      color: $themeColor;
+      &:hover{
+        color: #fb3d00;
+      }
+    }
+    }
+  }
+}

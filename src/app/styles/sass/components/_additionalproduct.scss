@@ -1,0 +1,44 @@
+.additional {
+  padding: 50px 0;
+  overflow: hidden;
+  .additional-header {
+    h6{
+        color: $themeColor;
+    }
+    .line {
+      margin-bottom: 50px;
+      ul {
+        li {
+          background: $themeColor;
+          width: 20px;
+          height: 2px;
+
+          &:nth-child(1) {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+          }
+          &:nth-child(2) {
+            width: 50px;
+          }
+          &:nth-child(3) {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .special-pro {
+    .special-pro-img {
+      position: relative;
+      width: 90%;
+      height: 272px;
+      margin: auto;
+      margin-bottom: 15px;
+    }
+    img {
+      object-fit: cover;
+    }
+  }
+}

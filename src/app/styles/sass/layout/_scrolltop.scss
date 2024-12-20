@@ -1,0 +1,14 @@
+.scroll-top{
+    @include transition-autoprefixer;
+    .fa-angles-up{
+        font-size: 18px;
+        color: #fff;
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+        background: $themeColor;
+        padding: 10px 15px;
+        cursor: pointer;
+        
+    }
+}

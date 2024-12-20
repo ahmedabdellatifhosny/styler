@@ -1,0 +1,13 @@
+.my-account {
+  padding: 50px 0;
+
+  ul {
+    li {
+      @include transition-autoprefixer;
+      &:hover {
+        color: $themeColor;
+        cursor: pointer;
+      }
+    }
+  }
+}
