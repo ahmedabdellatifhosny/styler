@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -6,7 +7,9 @@ import { Row, Col, Container } from "react-bootstrap";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-
+import { getHomeFeatureProduct } from "services/homeApis";
+import { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
 export default function ShoesSlider() {
   const settings = {
     slidesToShow: 1,
@@ -15,6 +18,18 @@ export default function ShoesSlider() {
     slidesPerRow: 1,
     arrows: true,
   };
+
+  const [featuredloading, setFeaturedloading] = useState(true);
+  const [featureProducts, setFeatureProducts] = useState([]);
+
+  useEffect(() => {
+    async function getFeatureProduct() {
+      const res = await getHomeFeatureProduct();
+      setFeatureProducts(res);
+      setFeaturedloading(false);
+    }
+    getFeatureProduct();
+  }, []);
 
   return (
     <section className="text-start shoes-slider">
@@ -385,355 +400,41 @@ export default function ShoesSlider() {
                 <h5>feature product </h5>
               </div>
               <Slider {...settings}>
-                <div className="slider-items">
-                  <div className="box-slider">
-                    <div className="box-img">
-                      <Image
-                        src={"/assets/images/shoes-slider/1.jpg"}
-                        fill
-                        alt="shoes"
-                      />
-                    </div>
-                    <div className="box-details text-start">
-                      <div className="rating">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className="pro-details">
-                        <div>solid black</div>
-                        <div>sports</div>
-                        <div>shoes</div>
-                      </div>
-                      <div className="pro-price">
-                        <span>$110.00</span>
-                        <span>$120.00</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="slider-items">
-                  <div className="box-slider">
-                    <div className="box-img">
-                      <Image
-                        src={"/assets/images/shoes-slider/2.jpg"}
-                        fill
-                        alt="shoes"
-                      />
-                    </div>
-                    <div className="box-details text-start">
-                      <div className="rating">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className="pro-details">
-                        <div>solid black</div>
-                        <div>sports</div>
-                        <div>shoes</div>
-                      </div>
-                      <div className="pro-price">
-                        <span>$110.00</span>
-                        <span>$120.00</span>
+                {featuredloading ? (
+                  <Skeleton height={300} />
+                ) : (
+                  featureProducts.map((featureProduct, index) => (
+                    <div className="slider-items" key={index}>
+                      <div className="box-slider">
+                        <div className="box-img">
+                          <Image
+                            src={featureProduct.featured_image_url}
+                            fill
+                            alt="shoes"
+                          />
+                        </div>
+                        <div className="box-details text-start">
+                          <div className="rating">
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                          </div>
+                          <div className="pro-details">
+                            <div>solid black</div>
+                            <div>sports</div>
+                            <div>shoes</div>
+                          </div>
+                          <div className="pro-price">
+                            <span>$110.00</span>
+                            <span>$120.00</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div className="slider-items">
-                  <div className="box-slider">
-                    <div className="box-img">
-                      <Image
-                        src={"/assets/images/shoes-slider/3.jpg"}
-                        fill
-                        alt="shoes"
-                      />
-                    </div>
-                    <div className="box-details text-start">
-                      <div className="rating">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className="pro-details">
-                        <div>solid black</div>
-                        <div>sports</div>
-                        <div>shoes</div>
-                      </div>
-                      <div className="pro-price">
-                        <span>$110.00</span>
-                        <span>$120.00</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="slider-items">
-                  <div className="box-slider">
-                    <div className="box-img">
-                      <Image
-                        src={"/assets/images/shoes-slider/4.jpg"}
-                        fill
-                        alt="shoes"
-                      />
-                    </div>
-                    <div className="box-details text-start">
-                      <div className="rating">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className="pro-details">
-                        <div>solid black</div>
-                        <div>sports</div>
-                        <div>shoes</div>
-                      </div>
-                      <div className="pro-price">
-                        <span>$110.00</span>
-                        <span>$120.00</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="slider-items">
-                  <div className="box-slider">
-                    <div className="box-img">
-                      <Image
-                        src={"/assets/images/shoes-slider/5.jpg"}
-                        fill
-                        alt="shoes"
-                      />
-                    </div>
-                    <div className="box-details text-start">
-                      <div className="rating">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className="pro-details">
-                        <div>solid black</div>
-                        <div>sports</div>
-                        <div>shoes</div>
-                      </div>
-                      <div className="pro-price">
-                        <span>$110.00</span>
-                        <span>$120.00</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="slider-items">
-                  <div className="box-slider">
-                    <div className="box-img">
-                      <Image
-                        src={"/assets/images/shoes-slider/6.jpg"}
-                        fill
-                        alt="shoes"
-                      />
-                    </div>
-                    <div className="box-details text-start">
-                      <div className="rating">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className="pro-details">
-                        <div>solid black</div>
-                        <div>sports</div>
-                        <div>shoes</div>
-                      </div>
-                      <div className="pro-price">
-                        <span>$110.00</span>
-                        <span>$120.00</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="slider-items">
-                  <div className="box-slider">
-                    <div className="box-img">
-                      <Image
-                        src={"/assets/images/shoes-slider/7.jpg"}
-                        fill
-                        alt="shoes"
-                      />
-                    </div>
-                    <div className="box-details text-start">
-                      <div className="rating">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className="pro-details">
-                        <div>solid black</div>
-                        <div>sports</div>
-                        <div>shoes</div>
-                      </div>
-                      <div className="pro-price">
-                        <span>$110.00</span>
-                        <span>$120.00</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="slider-items">
-                  <div className="box-slider">
-                    <div className="box-img">
-                      <Image
-                        src={"/assets/images/shoes-slider/8.jpg"}
-                        fill
-                        alt="shoes"
-                      />
-                    </div>
-                    <div className="box-details text-start">
-                      <div className="rating">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className="pro-details">
-                        <div>solid black</div>
-                        <div>sports</div>
-                        <div>shoes</div>
-                      </div>
-                      <div className="pro-price">
-                        <span>$110.00</span>
-                        <span>$120.00</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="slider-items">
-                  <div className="box-slider">
-                    <div className="box-img">
-                      <Image
-                        src={"/assets/images/shoes-slider/9.jpg"}
-                        fill
-                        alt="shoes"
-                      />
-                    </div>
-                    <div className="box-details text-start">
-                      <div className="rating">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className="pro-details">
-                        <div>solid black</div>
-                        <div>sports</div>
-                        <div>shoes</div>
-                      </div>
-                      <div className="pro-price">
-                        <span>$110.00</span>
-                        <span>$120.00</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="slider-items">
-                  <div className="box-slider">
-                    <div className="box-img">
-                      <Image
-                        src={"/assets/images/shoes-slider/10.jpg"}
-                        fill
-                        alt="shoes"
-                      />
-                    </div>
-                    <div className="box-details text-start">
-                      <div className="rating">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className="pro-details">
-                        <div>solid black</div>
-                        <div>sports</div>
-                        <div>shoes</div>
-                      </div>
-                      <div className="pro-price">
-                        <span>$110.00</span>
-                        <span>$120.00</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="slider-items">
-                  <div className="box-slider">
-                    <div className="box-img">
-                      <Image
-                        src={"/assets/images/shoes-slider/11.jpg"}
-                        fill
-                        alt="shoes"
-                      />
-                    </div>
-                    <div className="box-details text-start">
-                      <div className="rating">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className="pro-details">
-                        <div>solid black</div>
-                        <div>sports</div>
-                        <div>shoes</div>
-                      </div>
-                      <div className="pro-price">
-                        <span>$110.00</span>
-                        <span>$120.00</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="slider-items">
-                  <div className="box-slider">
-                    <div className="box-img">
-                      <Image
-                        src={"/assets/images/shoes-slider/12.jpg"}
-                        fill
-                        alt="shoes"
-                      />
-                    </div>
-                    <div className="box-details text-start">
-                      <div className="rating">
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                        <FontAwesomeIcon icon={faStar} />
-                      </div>
-                      <div className="pro-details">
-                        <div>solid black</div>
-                        <div>sports</div>
-                        <div>shoes</div>
-                      </div>
-                      <div className="pro-price">
-                        <span>$110.00</span>
-                        <span>$120.00</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  ))
+                )}
               </Slider>
             </div>
           </Col>

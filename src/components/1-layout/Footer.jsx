@@ -131,7 +131,7 @@ export default function Footer() {
         </div>
         <div className="copyright text-center mt-5">
           <Row>
-            <Col md={6}>all right receved &copy; styler store 2024 </Col>
+            <Col md={6}>all right receved &copy; <a href={"https//www.develogs.com"} className="text-danger">develogs 2024</a> </Col>
             <Col md={6}>
               <Image
                 src={"/assets/images/payment/payment.png"}

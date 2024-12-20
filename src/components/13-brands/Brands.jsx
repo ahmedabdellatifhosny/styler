@@ -3,8 +3,21 @@
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import Image from "next/image";
-
+import { useState, useEffect } from "react";
+import Skeleton from "react-loading-skeleton";
+import {getHomeBrands} from "services/homeApis";
 export default function Brands() {
+  const [brands, setBrands] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    async function getBrands() {
+      const brands = await getHomeBrands();
+      console.log(brands);
+      setBrands(brands);
+      setLoading(false);
+    }
+    getBrands();
+  }, []);
   let settings = {
     dots: false,
     infinite: true,
@@ -21,9 +34,9 @@ export default function Brands() {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
-          autoplay: true, // تم التعديل
+          autoplay: true,
           speed: 1000,
-          autoplaySpeed: 2000, // سرعة التمرير التلقائي (بالميلي ثانية)
+          autoplaySpeed: 2000,
           cssEase: "linear",
           dots: false,
         },
@@ -34,7 +47,7 @@ export default function Brands() {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
-          autoplay: true, // إضافة autoplay هنا إذا لزم
+          autoplay: true,
           autoplaySpeed: 3000,
         },
       },
@@ -43,7 +56,7 @@ export default function Brands() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          autoplay: true, // إضافة autoplay هنا إذا لزم
+          autoplay: true,
           autoplaySpeed: 3000,
         },
       },
@@ -54,34 +67,40 @@ export default function Brands() {
     <section className="brands">
       <Container>
         <div className="slider-container text-center">
-          <Slider Slider  {...settings}>
-            <div className="item">
-              <div className="slider-items">
-                <Image src="/assets/images/brands/1.png" alt="brand" fill />
-              </div>
-              <div className="brand-name">
-                <p>addidas</p>
-              </div>
-            </div>
-            <div className="item">
-              <div className="slider-items">
-                <Image src="/assets/images/brands/2.png" alt="brand" fill />
-              </div>
-              <div className="brand-name">
-                <p>balenciaga </p>
-              </div>
-            </div>
-            <div className="item">
-              <div className="slider-items">
-                <Image src="/assets/images/brands/3.png" alt="brand" fill />
-              </div>
-              <div className="brand-name">
-                <p>nike</p>
-              </div>
-            </div>
+          <Slider Slider {...settings}>
+            {loading ? (
+              <Skeleton
+                height={500}
+                count={5}
+                baseColor="#ddd"
+                highlightColor="#eee"
+              />
+            ) : (
+              brands.map((brand, index) => (
+                <div className="item" key={index}>
+                  <div className="slider-items">
+                    <Image src={brand.featured_image_url} alt={brand.name} fill />
+                  </div>
+                  <div className="brand-name">
+                    <p>{brand.name}</p>
+                  </div>
+                </div>
+              ))
+            )}
           </Slider>
         </div>
       </Container>
     </section>
   );
+}
+
+{
+  /* <div className="item" key={index}>
+<div className="slider-items">
+  <Image src={brand.image} alt="brand" fill />
+</div>
+<div className="brand-name">
+  <p>{brand.featured_image_url}</p>
+</div>
+</div> */
 }
