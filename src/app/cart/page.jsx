@@ -37,12 +37,8 @@ export default function Cart() {
     },
   ];
 
-
   const [products, setProducts] = useState(initialProducts);
   const [counters, setCounters] = useState(initialProducts.map(() => 1));
-
-
-
 
   function incrementCounter(index) {
     const updatedCounters = [...counters];
@@ -132,7 +128,7 @@ export default function Cart() {
                     </td>
                   </tr>
                 ))}
-             
+
                 {products.length > 0 && (
                   <tr>
                     <td
@@ -165,7 +161,6 @@ export default function Cart() {
           </div>
         </Container>
       </section>
-
       <Footer />
     </>
   );
