@@ -26,7 +26,7 @@ import { useParams } from "next/navigation";
 
 
 export default function Page() {
-  const params = useParams(); // Extract the slug from the URL
+  const params = useParams(); 
   const { slug } = params;
 
 
