@@ -24,11 +24,9 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { useParams } from "next/navigation";
 
-
 export default function Page() {
-  const params = useParams(); 
+  const params = useParams();
   const { slug } = params;
-
 
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
@@ -38,7 +36,6 @@ export default function Page() {
   useEffect(() => {
     setNav1(sliderRef1.current);
     setNav2(sliderRef2.current);
-    console.log(slug);
   }, []);
 
   const [show, setShow] = useState(false);
