@@ -6,9 +6,9 @@ import Row from "react-bootstrap/Row";
 import Header from "../../components/1-layout/Header";
 import Footer from "../../components/1-layout/Footer";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import { Container, Toast } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useState } from "react";
-import { baseUrl, register } from "../../services/homeApis";
+import { register } from "../../services/homeApis";
 import axios from "axios";
 
 export default function Register() {
