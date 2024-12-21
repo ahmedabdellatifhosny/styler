@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
 
-
 // @ts-ignore
 const Slider = dynamic(() => import("react-slick"), { ssr: false });
 
@@ -70,12 +69,66 @@ export default function SpecialProduct() {
         <div className="slider-container">
           <Slider {...settings}>
             {loading ? (
-              <Skeleton
-                height={500}
-                count={5}
-                baseColor="#ddd"
-                highlightColor="#eee"
-              />
+              // <Skeleton
+              //   height={500}
+              //   count={5}
+              //   baseColor="#ddd"
+              //   highlightColor="#eee"
+              // />
+              <div className="pro-box">
+                <Skeleton
+                  height={100}
+                  count={5}
+                  baseColor="#ddd"
+                  highlightColor="#eee"
+                />
+                <h5 className="product-title text-start">
+                 
+                  <Skeleton
+                    height={100}
+                    count={5}
+                    baseColor="#ddd"
+                    highlightColor="#eee"
+                  />
+                </h5>
+                <div className="rating text-start">
+                  <Skeleton
+                    height={100}
+                    count={5}
+                    baseColor="#ddd"
+                    highlightColor="#eee"
+                  />
+                  <span>
+                    <Skeleton
+                      height={100}
+                      count={5}
+                      baseColor="#ddd"
+                      highlightColor="#eee"
+                    />
+                  </span>
+                </div>
+                <div className="price-discount">
+                  <div className="price">
+                    <Skeleton
+                      height={100}
+                      count={5}
+                      baseColor="#ddd"
+                      highlightColor="#eee"
+                    />
+                  </div>
+                  <div className="discount">
+                    <span className="price-discount">
+                      <Skeleton
+                        height={100}
+                        count={5}
+                        baseColor="#ddd"
+                        highlightColor="#eee"
+                      />
+                    </span>
+                    {/* <span className="off">5% off</span> */}
+                  </div>
+                </div>
+              </div>
             ) : (
               specialProduct.map((product, index) => (
                 <div className="pro-box" key={index}>

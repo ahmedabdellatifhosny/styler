@@ -9,6 +9,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { getHomeFeatureProduct } from "services/homeApis";
 import { useEffect, useState } from "react";
+import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
+
+
 import Skeleton from "react-loading-skeleton";
 export default function ShoesSlider() {
   const settings = {
@@ -410,25 +414,30 @@ export default function ShoesSlider() {
                           <Image
                             src={featureProduct.featured_image_url}
                             fill
-                            alt="shoes"
+                            alt={featureProduct.name}
                           />
                         </div>
                         <div className="box-details text-start">
                           <div className="rating">
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
+                            {[...Array(5)].map((_, index) => (
+                              <FontAwesomeIcon
+                                key={index}
+                                icon={
+                                  index < featureProduct.stars
+                                    ? solidStar
+                                    : emptyStar
+                                }
+                              />
+                            ))}
                           </div>
                           <div className="pro-details">
-                            <div>solid black</div>
+                            <div>{featureProduct.name}</div>
                             <div>sports</div>
                             <div>shoes</div>
                           </div>
                           <div className="pro-price">
-                            <span>$110.00</span>
-                            <span>$120.00</span>
+                            <span>{featureProduct.sell_price}</span>
+                            <span>{featureProduct.discount}</span>
                           </div>
                         </div>
                       </div>

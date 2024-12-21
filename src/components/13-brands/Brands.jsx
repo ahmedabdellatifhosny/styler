@@ -5,7 +5,8 @@ import Slider from "react-slick";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
-import {getHomeBrands} from "services/homeApis";
+import { getHomeBrands } from "services/homeApis";
+import Link from "next/link";
 export default function Brands() {
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -64,33 +65,54 @@ export default function Brands() {
   };
 
   return (
-    <section className="brands">
-      <Container>
-        <div className="slider-container text-center">
-          <Slider Slider {...settings}>
-            {loading ? (
-              <Skeleton
-                height={500}
-                count={5}
-                baseColor="#ddd"
-                highlightColor="#eee"
-              />
-            ) : (
-              brands.map((brand, index) => (
-                <div className="item" key={index}>
+<section className="brands">
+  <Container>
+    <div className="slider-container text-center">
+      <Slider {...settings}>
+        {loading
+          ? Array.from({ length: 5 }).map((_, index) => (
+              <div className="item" key={index}>
+                <div className="slider-items" style={{ width: "100%", height: "100px" }}>
+                  <Skeleton
+                    height={100}
+                    width="90%"
+                    baseColor="#ddd"
+                    highlightColor="#eee"
+                  />
+                </div>
+                <div className="brand-name">
+                  <p>
+                    <Skeleton
+                      height={20}
+                      width="90%"
+                      baseColor="#ddd"
+                      highlightColor="#eee"
+                    />
+                  </p>
+                </div>
+              </div>
+            ))
+          : brands.map((brand, index) => (
+              <Link href={"/products/brand/" + brand.slug} key={index}>
+                <div className="item">
                   <div className="slider-items">
-                    <Image src={brand.featured_image_url} alt={brand.name} fill />
+                    <Image
+                      src={brand.featured_image_url}
+                      alt={brand.name}
+                      fill
+                    />
                   </div>
                   <div className="brand-name">
                     <p>{brand.name}</p>
                   </div>
                 </div>
-              ))
-            )}
-          </Slider>
-        </div>
-      </Container>
-    </section>
+              </Link>
+            ))}
+      </Slider>
+    </div>
+  </Container>
+</section>
+
   );
 }
 

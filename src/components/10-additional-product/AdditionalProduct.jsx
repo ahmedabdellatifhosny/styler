@@ -2,8 +2,26 @@
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import Image from "next/image";
-
+import { useEffect, useState } from "react";
+import { getCategories } from "services/homeApis";
+import Link from "next/link";
 export default function AdditionalProduct() {
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    try {
+      async function getCats() {
+        const cats = await getCategories();
+        setCategories(cats);
+        setLoading(false);
+      }
+      getCats();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
   let settings = {
     dots: false,
     infinite: true,
@@ -18,7 +36,7 @@ export default function AdditionalProduct() {
           slidesToShow: 4,
           slidesToScroll: 4,
           infinite: true,
-          autoPlay : true,
+          autoPlay: true,
           speed: 1000,
           autoplaySpeed: 1000,
           cssEase: "linear",
@@ -58,51 +76,44 @@ export default function AdditionalProduct() {
         </div>
         <div className="slider-container">
           <Slider {...settings}>
-            <div className="special-pro">
-              <div className="special-pro-img">
-                <Image
-                  src="/assets/images/collection/1.png"
-                  alt="product"
-                  fill
-                />
+            {loading ? (
+              <div className="special-pro">
+                <div className="special-pro-img">
+                  <Image
+                    src="/assets/images/collection/1.png"
+                    alt="product"
+                    fill
+                  />
+                </div>
+                <h4 className="date">25 January 2018</h4>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Repudiandae, ipsum.
+                </p>
+                <h6>by: John Dio , 2 Comment</h6>
               </div>
-              <h4 className="date">25 January 2018</h4>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Repudiandae, ipsum.
-              </p>
-              <h6>by: John Dio , 2 Comment</h6>
-            </div>
-            <div className="special-pro">
-              <div className="special-pro-img">
-                <Image
-                  src="/assets/images/collection/2.png"
-                  alt="product"
-                  fill
-                />
-              </div>
-              <h4 className="date">25 January 2018</h4>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Repudiandae, ipsum.
-              </p>
-              <h6>by: John Dio , 2 Comment</h6>
-            </div>
-            <div className="special-pro">
-              <div className="special-pro-img">
-                <Image
-                  src="/assets/images/collection/3.png"
-                  alt="product"
-                  fill
-                />
-              </div>
-              <h4 className="date">25 January 2018</h4>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Repudiandae, ipsum.
-              </p>
-              <h6>by: John Dio , 2 Comment</h6>
-            </div>
+            ) : (
+              categories.map((category, index) => {
+                return (
+                  <Link href={`/products/category/${category.slug}`} key={index}>
+                  <div className="special-pro" key={index}>
+                    <div className="special-pro-img">
+                      <Image
+                        src={category.featured_image_url}
+                        alt={category.name}
+                        fill
+                      />
+                    </div>
+                    <h4 className="date">{category.created_at}</h4>
+                    <p>
+                    {category.description}
+                    </p>
+                    <h6>by: {category.updated_at} , 2 Comment</h6>
+                  </div>
+                  </Link>
+                );
+              })
+            )}
           </Slider>
         </div>
       </Container>

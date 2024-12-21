@@ -28,3 +28,17 @@ export async function getProductDetails(slug) {
   const data = await res.json();
   return data.products;
 }
+
+
+export async function getProducts(type,slug) {
+  const res = await fetch(`${baseUrl}/products/${type}/${slug}`);
+  const data = await res.json();
+  return data.products.data;
+}
+
+export async function getCategories() {
+  const res = await fetch(`${baseUrl}/products/categories`);
+  const data = await res.json();
+  return data.categories;
+}
+
