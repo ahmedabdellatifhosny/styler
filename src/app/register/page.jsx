@@ -6,8 +6,70 @@ import Row from "react-bootstrap/Row";
 import Header from "../../components/1-layout/Header";
 import Footer from "../../components/1-layout/Footer";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import { Container } from "react-bootstrap";
+import { Container, Toast } from "react-bootstrap";
+import { useState } from "react";
+import { baseUrl, register } from "../../services/homeApis";
+import axios from "axios";
+
 export default function Register() {
+  const [RegForm, setRegForm] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [error, setError] = useState(""); 
+  const [success, setSuccess] = useState(""); 
+
+  async function submitBtn(e) {
+    e.preventDefault();
+
+
+    if (
+      !RegForm.name ||
+      !RegForm.email ||
+      !RegForm.password ||
+      !RegForm.confirmPassword
+    ) {
+      setError("All fields are required.");
+      return; 
+    }
+
+  
+    if (RegForm.password !== RegForm.confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    try {
+     const res= await register(RegForm.name, RegForm.email, RegForm.password);  
+
+   
+     if(res.status === true){
+      setSuccess(res.message + ", Hello :"+res.data.user.name);
+      setError('');
+     }else{
+      setError(res.message);
+      setSuccess('');
+
+     }
+      
+    } catch (error) {
+      if (error.response) {
+        // في حال وجود استجابة من السيرفر
+        if (error.response.status === 422) {
+          setError("Validation error: Please check the input fields.");
+        } else {
+          setError("An error occurred during registration.");
+        }
+      } else {
+        setError("Network error: Please check your connection.");
+      }
+    }
+  }
+
   return (
     <>
       <Header />
@@ -25,22 +87,55 @@ export default function Register() {
           </div>
 
           <div className="sub-form">
+          {error && <div className="alert alert-danger">{error}</div>} {/* عرض رسالة الخطأ */}
+          {success && <div className="alert alert-success">{success}</div>} {/* عرض رسالة الخطأ */}
+
             <Form>
               <Row>
                 <Col>
-                  <label>first name</label>
-                  <Form.Control placeholder="First name" />
-                  <label>last name</label>
-                  <Form.Control placeholder="Last name" />
+                  <label>First name</label>
+                  <Form.Control
+                    placeholder="First name"
+                    value={RegForm.name}
+                    onChange={(e) =>
+                      setRegForm({ ...RegForm, name: e.target.value })
+                    }
+                    required
+                  />
+                  <label>Password</label>
+                  <Form.Control
+                    placeholder="Enter your password"
+                    type="password"
+                    value={RegForm.password}
+                    onChange={(e) =>
+                      setRegForm({ ...RegForm, password: e.target.value })
+                    }
+                    required
+                  />
                 </Col>
                 <Col>
-                  <label>email</label>
-                  <Form.Control placeholder="Email" />
-                  <label>password</label>
-                  <Form.Control placeholder="Password" />
+                  <label>Email</label>
+                  <Form.Control
+                    placeholder="Email"
+                    value={RegForm.email}
+                    onChange={(e) =>
+                      setRegForm({ ...RegForm, email: e.target.value })
+                    }
+                    required
+                  />
+                  <label>Confirm password</label>
+                  <Form.Control
+                    placeholder="Confirm your password"
+                    type="password"
+                    value={RegForm.confirmPassword}
+                    onChange={(e) =>
+                      setRegForm({ ...RegForm, confirmPassword: e.target.value })
+                    }
+                    required
+                  />
                 </Col>
               </Row>
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" onClick={submitBtn}>
                 Create account
               </Button>
             </Form>
