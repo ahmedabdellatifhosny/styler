@@ -35,8 +35,8 @@ export default function Feature() {
                 />
               </div>
               <div className="feature-image">
-                <h4>free shipping</h4>
-                <p>free shipping world wide</p>
+                <h4>24 X 7 service</h4>
+                <p>online service for new customer</p>
               </div>
             </div>
           </Col>
@@ -52,8 +52,8 @@ export default function Feature() {
                 />
               </div>
               <div className="feature-image">
-                <h4>free shipping</h4>
-                <p>free shipping world wide</p>
+                <h4>festival offer</h4>
+                <p>new online special festival offer</p>
               </div>
             </div>
           </Col>

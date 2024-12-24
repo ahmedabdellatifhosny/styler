@@ -3,7 +3,14 @@ import Image from "next/image";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Link from "next/link";
+import { useState } from "react";
 export default function Footer() {
+  const [mewsletter, setMewsletter] = useState({
+    email: "",
+  });
+  function handleNewsLetter(e) {
+    e.preventDefault();
+  }
   return (
     <footer className=" footer ">
       <Container>
@@ -61,7 +68,6 @@ export default function Footer() {
             <Col>
               <h3>help center</h3>
               <ul className="list-unstyled">
-       
                 <Link href={"/my-orders"}>
                   <li>my orders</li>
                 </Link>
@@ -74,7 +80,6 @@ export default function Footer() {
                 <Link href={"/contact-us"}>
                   <li>contact us</li>
                 </Link>
-          
               </ul>
             </Col>
             <Col>
@@ -84,9 +89,9 @@ export default function Footer() {
               </p>
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control type="email" placeholder="Enter email" value={mewsletter.email} onChange={(e) => setMewsletter({ ...mewsletter, email: e.target.value })} />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onClick={handleNewsLetter}>
                   Submit
                 </Button>
               </Form>
@@ -110,8 +115,8 @@ export default function Footer() {
         <div className="copyright text-center mt-5">
           <Row>
             <Col md={6}>
-              all right receved &copy;{" "}
-              <a href={"https//www.develogs.com"} className="text-danger">
+              all right receved &copy;
+              <a href={"#"} className="text-danger">
                 develogs 2024
               </a>{" "}
             </Col>

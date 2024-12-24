@@ -9,7 +9,7 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Container } from "react-bootstrap";
 import { useState } from "react";
 import { register } from "../../services/homeApis";
-import axios from "axios";
+
 
 export default function Register() {
   const [RegForm, setRegForm] = useState({

@@ -6,8 +6,17 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Link from "next/link";
-
+import {  useState } from "react";
 export default function Login() {
+  const [login , setLogin] = useState({
+    email: "",
+    password: "",
+  });
+
+  function submitBtn(e) {
+    e.preventDefault();
+   
+  }
   return (
     <>
       <Header />
@@ -29,17 +38,18 @@ export default function Login() {
                   <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                       <Form.Label>Email</Form.Label>
-                      <Form.Control type="email" placeholder="Enter email" />
+                      <Form.Control type="email" placeholder="Enter email" value={login.email} onChange={(e) => setLogin({...login , email: e.target.value})} />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                       <Form.Label>Password</Form.Label>
-                      <Form.Control type="password" placeholder="Password" />
+                      <Form.Control type="password" placeholder="Password" value={login.password} onChange={(e) => setLogin({...login , password: e.target.value})} />
                     </Form.Group>
                     <Button
                       variant="primary"
                       type="submit"
                       className="text-capitalize"
+                      onClick={submitBtn}
                     >
                       login
                     </Button>
