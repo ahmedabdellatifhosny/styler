@@ -1,5 +1,4 @@
 .products {
-  
   .filters {
     .categories-filter {
       margin: 20px 0;
@@ -16,29 +15,19 @@
       }
     }
     .colours-filter {
-        margin: 20px 0;
-        form {
-          overflow-y: scroll;
-          height: 200px;
-        }
+      margin: 20px 0;
+      form {
+        overflow-y: scroll;
+        height: 200px;
       }
+    }
 
-      .ratings-filter {
-        margin: 20px 0;
-        form {
-          overflow-y: scroll;
-          height: 200px;
-        }
+    .ratings-filter {
+      margin: 20px 0;
+      form {
+        overflow-y: scroll;
+        height: 200px;
       }
+    }
   }
-}
-.products .row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px; /* مسافة بين البوكسات */
-}
-
-.pro-box {
-  flex: 1 1 calc(33.333% - 16px); /* عرض 3 بوكسات في الصف الواحد */
-  max-width: calc(33.333% - 16px);
 }

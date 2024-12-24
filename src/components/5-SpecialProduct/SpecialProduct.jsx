@@ -70,7 +70,7 @@ export default function SpecialProduct() {
           <Slider {...settings}>
             {loading ? (
            
-              <div className="pro-box" style={{ width: "200px" }}>
+              <div className="pro-box" >
                 <Skeleton
                   height={100}
                   count={5}
@@ -126,16 +126,16 @@ export default function SpecialProduct() {
               </div>
             ) : (
               specialProduct.map((product, index) => (
-                <div className="pro-box" key={index} style={{ width: "200px" }}>
+                <div className="pro-box" key={index} >
                   <Image
                     src={product.featured_image_url}
                     width={204}
                     height={147}
                     alt={product.name}
-                    style={{ width: "200px" }}
+                    
                   />
-                  <h5 className="product-title text-start" style={{ width: "200px" }}>{product.name}</h5>
-                  <div className="rating text-start" style={{ width: "200px" }}>
+                  <h5 className="product-title text-start" >{product.name}</h5>
+                  <div className="rating text-start" >
                     {[...Array(5)].map((_, index) => (
                       <FontAwesomeIcon
                         key={index}
@@ -144,7 +144,7 @@ export default function SpecialProduct() {
                     ))}
                     <span>({product.stars})</span>
                   </div>
-                  <div className="price-discount"style={{ width: "200px" }}>
+                  <div className="price-discount">
                     <div className="price">{product.sell_price}</div>
                     <div className="discount">
                       <span className="price-discount">{product.discount}</span>
