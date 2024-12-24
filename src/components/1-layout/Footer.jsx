@@ -29,24 +29,15 @@ export default function Footer() {
               <div className="footer-cat">
                 <h3>categories</h3>
                 <ul className="list-unstyled">
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
+                  <Link href={"/products/brand/nike"}>
+                    <li>nike</li>
                   </Link>
 
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
+                  <Link href={"/products/brand/adidas"}>
+                    <li>addidas</li>
                   </Link>
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
+                  <Link href={"/products/brand/balenciaga"}>
+                    <li>belansiaga</li>
                   </Link>
                 </ul>
               </div>
@@ -55,23 +46,14 @@ export default function Footer() {
               <div className="useful-links">
                 <h3>useful links</h3>
                 <ul className="list-unstyled">
-                <Link href={"#"}>
-                    <li>Baby Essentials</li>
+                  <Link href={"#"}>
+                    <li>home</li>
                   </Link>
                   <Link href={"#"}>
-                    <li>Baby Essentials</li>
+                    <li>collections</li>
                   </Link>
                   <Link href={"#"}>
-                    <li>Baby Essentials</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
+                    <li>offers</li>
                   </Link>
                 </ul>
               </div>
@@ -79,24 +61,20 @@ export default function Footer() {
             <Col>
               <h3>help center</h3>
               <ul className="list-unstyled">
-              <Link href={"#"}>
-                    <li>Baby Essentials</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>Baby Essentials</li>
-                  </Link>
+       
+                <Link href={"/my-orders"}>
+                  <li>my orders</li>
+                </Link>
+                <Link href={"/track-order"}>
+                  <li>track order</li>
+                </Link>
+                <Link href={"/faq"}>
+                  <li>faq</li>
+                </Link>
+                <Link href={"/contact-us"}>
+                  <li>contact us</li>
+                </Link>
+          
               </ul>
             </Col>
             <Col>
@@ -113,25 +91,30 @@ export default function Footer() {
                 </Button>
               </Form>
               <ul className="list-unstyled d-flex gap-2">
-              <Link href={"#"}>
-                    <li>facebook</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>youtube</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>instagram</li>
-                  </Link>
-                  <Link href={"#"}>
-                    <li>tiktok</li>
-                  </Link>
+                <Link href={"#"}>
+                  <li>facebook</li>
+                </Link>
+                <Link href={"#"}>
+                  <li>youtube</li>
+                </Link>
+                <Link href={"#"}>
+                  <li>instagram</li>
+                </Link>
+                <Link href={"#"}>
+                  <li>tiktok</li>
+                </Link>
               </ul>
             </Col>
           </Row>
         </div>
         <div className="copyright text-center mt-5">
           <Row>
-            <Col md={6}>all right receved &copy; <a href={"https//www.develogs.com"} className="text-danger">develogs 2024</a> </Col>
+            <Col md={6}>
+              all right receved &copy;{" "}
+              <a href={"https//www.develogs.com"} className="text-danger">
+                develogs 2024
+              </a>{" "}
+            </Col>
             <Col md={6}>
               <Image
                 src={"/assets/images/payment/payment.png"}
